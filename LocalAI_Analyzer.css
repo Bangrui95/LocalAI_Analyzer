@@ -19,6 +19,9 @@ body {
   max-width: 1100px;
   margin: auto;
 }
+html {
+  scroll-behavior: smooth;
+}
 
 
 /* ===================================================== */
@@ -40,6 +43,7 @@ body {
 }
 
 .logo {
+  text-decoration: none;
   display: flex;
   align-items: center;
   gap: 10px;
@@ -59,6 +63,10 @@ body {
 
 .logo span strong {
   color: #4F9CFF;
+}
+.logo span,
+.logo strong {
+  text-decoration: none !important;   /* 移除底线 */
 }
 
 .nav {
@@ -118,7 +126,6 @@ body {
   font-size: 22px;
   color: #9EB8D9;
   line-height: 1.5;
-  max-width: 700px;
   margin: 0 auto;
 }
 
@@ -301,7 +308,7 @@ body {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 28px;
-  margin: 65px 0;
+  margin: 30px 0;
   align-items: stretch;
 }
 
@@ -818,11 +825,13 @@ body {
 .comparison-table thead th {
   padding: 20px 10px;
   text-align: center;
-  font-size: 2.2vh;
+  font-size: clamp(1.3vh, 2vw, 2.2vh);  /* 在 1.3vh ~ 2.2vh 之间自动缩放 */
+  white-space: nowrap;
+  line-height: 1.1;
   font-weight: 600;
-  color: white;
-  background: rgba(255, 255, 255, 0.08);  
-  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+  color: #4F9CFF;
+  background: rgba(255, 255, 255, 0.03);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.18);
 }
 
 /* Body rows */
@@ -831,8 +840,8 @@ body {
   padding: 18px 10px;
   font-size: 1.9vh;
   color: rgba(255, 255, 255, 0.9);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.06); /* 🟩 极淡分割线（像 Framer） */
-  border-right: 1px solid rgba(255, 255, 255, 0.03);  /* 🟩 垂直线，不会太硬 */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1); 
+  border-right: 1px solid rgba(255, 255, 255, 0.1);  /* 🟩 垂直线，不会太硬 */
 }
 
 /* 最后一列不要竖线 */
@@ -848,12 +857,51 @@ body {
   font-weight: 700;
   width: 26%;
   text-align: left;
-  color: #9bc2ff;  /* 你的蓝绿色 */
-  border-right: 1px solid rgba(255, 255, 255, 0.08);  /* 稍微明确一点 */
+  color: white;  
+  border-right: 1px solid rgba(255, 255, 255, 0.18);  
 }
 
 /* Hover 效果 */
 .comparison-table tbody tr:hover {
-  background: rgba(255, 255, 255, 0.04);
+  background: rgba(0, 98, 255, 0.12);
   transition: 0.2s;
+}
+
+.check::before {
+  content: "✓";
+  color: white;
+  font-size: 1.9vh;
+  font-weight: 600;
+  display: block;
+  text-align: center;
+}
+
+.text {
+  color:white;
+  font-size: 1.9vh;
+  font-weight: 600;
+  text-align: center;
+}
+
+
+.use-image-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin: 4vh 0 6vh;
+}
+
+.use-image {
+  width: 100%;
+  max-width: 900px;
+  border-radius: 12px;
+  box-shadow: 0 0 25px  #4f9bff63;
+  opacity: 0.6;
+}
+
+.logo-image {
+  width: 100%;
+  max-width:80%;
+  border-radius: 12px;
+  box-shadow: 0 0 25px rgba(0,0,0,0.35);
 }
