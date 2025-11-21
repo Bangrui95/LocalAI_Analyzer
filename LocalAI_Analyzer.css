@@ -361,7 +361,7 @@ body {
 /* FEATURES                                               */
 /* ===================================================== */
 .features {
-  padding-bottom: 120px;
+  padding-bottom: 1vh;
 }
 
 .feature-grid {
@@ -372,26 +372,12 @@ body {
 }
 
 .feature-card {
-  background: rgba(255,255,255,0.05);
+  /* background: rgba(255,255,255,0.05); */
   padding: 25px;
   border-radius: 14px;
   border: 1px solid rgba(255,255,255,0.08);
 }
 
-
-/* ===================================================== */
-/* NEW — TRY SECTION                                      */
-/* ===================================================== */
-.try-section {
-  padding: 120px 0;
-  text-align: center;
-  border-top: 1px solid rgba(255,255,255,0.08);
-}
-
-.try-section .section-desc {
-  max-width: 700px;
-  margin: 12px auto 0 auto;
-}
 
 
 /* ===================================================== */
@@ -403,6 +389,8 @@ body {
   color: #9BA2AE;
   border-top: 1px solid rgba(255,255,255,0.07);
 }
+
+
 /* =========================================
    Try Section – Fullscreen Responsive Layout
 ========================================= */
@@ -424,6 +412,7 @@ body {
   justify-content: center;
   align-items: center;
   text-align: center;
+  
 
   background: rgba(0,0,0,0.6);
   backdrop-filter: blur(10px);
@@ -438,40 +427,57 @@ body {
 }
 
 /* INNER CONTAINER */
+/* INNER CONTAINER */
 .try-inner {
+  height: auto; 
   width: 90%;
   max-width: 1100px;
 
   display: flex;
   flex-direction: column;
-  gap: 32px;
 
-  padding: 50px 55px;
+  /* px → vh (高度自适应) */
+  /* gap: 4vh; */
+
+  padding: 5vh 5vw;
 
   text-align: center;
 }
 
+/* TITLE */
+.try-title {
+  margin-bottom: 3vh;
+  font-size: 4vh;
+  font-weight: 700;
+  color:#3b82f6;
+  text-align: center;
+  padding-top: 19vh;
+
+  opacity: 0.95;
+}
+
 /* INPUT BOX */
 .try-input-box {
+  margin-bottom: 3vh;
   width: 100%;
 }
 
 .try-input-box textarea {
   width: 100%;
-  min-height: 220px;
-  resize: vertical;
+  height: 26vh;     /* 固定比例，保持你现在视觉高度 */
   resize: none;
 
-  padding: 20px;
-  font-size: 17px;
+  padding: 2vh 2vw;
+  font-size: 2vh;
   line-height: 1.55;
+
   color: #dbe3f4;
 
   background: #070708;
-  border: 2.66px solid rgba(110,160,255,0.09);
-  border-radius: 18px;
+  border: 0.3vh solid rgba(110,160,255,0.09);
+  border-radius: 2vh;
 
-  box-shadow: 0 4px 16px rgba(0,0,0,0.25);
+  box-shadow: 0 0.8vh 2vh rgba(0,0,0,0.25);
   transition: border-color .25s, box-shadow .25s;
 }
 
@@ -486,23 +492,23 @@ body {
 /* RUN BUTTON */
 .try-run-btn {
   align-self: center;
-  width: auto;
 
-  padding: 14px 28px;
-  font-size: 17px;
+  padding: 1.6vh 4vh;
+  font-size: 2vh;
   font-weight: 600;
 
   background: rgba(0,0,0,0.4);
-  border: 2px solid rgba(79,156,255,0.75);
-  border-radius: 14px;
+  border: 0.3vh solid rgba(79,156,255,0.75);
+  border-radius: 1.8vh;
   color: #dce8ff;
 
   box-shadow:
-    0 0 18px rgba(79,156,255,0.25),
-    0 0 8px rgba(79,156,255,0.15);
+    0 0 2.4vh rgba(79,156,255,0.25),
+    0 0 1.2vh rgba(79,156,255,0.15);
 
   cursor: pointer;
   transition: 0.25s ease;
+  margin-bottom: 3vh;
 }
 
 .try-run-btn:hover {
@@ -512,47 +518,133 @@ body {
 /* OUTPUT BOX */
 .try-output-box {
   width: 100%;
-  min-height: 80px;
+  height: 9vh;   /* 替代 min-height: 80px */
 
-  border: 2px solid rgba(110,160,255,0.09);
-  border-radius: 18px;
+  border: 0.3vh solid rgba(110,160,255,0.09);
+  border-radius: 2vh;
   background: #070708;
 
   display: flex;
   justify-content: center;
   align-items: center;
 
-  padding: 20px;
+  padding: 2vh;
+  margin-bottom: 2vh;
 }
 
 .output-placeholder {
-  font-size: 18px;
+  font-size: 2vh;
   color: #9eb0c4;
 }
 
 /* DESCRIPTION TEXT */
 .try-description {
-  font-size: 14px;
-  color: #a8b3c5;
+  font-size: 1.6vh;
   line-height: 1.6;
+  color: #a8b3c5;
+  padding: 0 2vw;
+  margin-bottom: 2vh;
 }
 
 .try-description .small-line {
-  font-size: 12px;      /* 比正文小 */
-  opacity: 0.85;        /* 更柔和 */
+  font-size: 1.4vh;
+  opacity: 0.85;
 }
 
-/* BOTTOM BUTTONS */
 .try-bottom-btns {
-  margin-top: 18px;
+  margin-top: 0.5vh;        /* 与描述文字的距离保留 */
+  margin-bottom: 19vh;     /* ← 新增：整体往上收 */
   display: flex;
   justify-content: center;
-  gap: 30px;
+  gap: 3.5vh;
+  margin-top: 1.5vh;
 }
 
 .try-dual-btn {
-  padding: 12px 22px;
-  font-size: 14px;
+  padding: 1.4vh 3vh;
+  font-size: 1.8vh;
+  border-radius: 1.5vh;
+
+  background: transparent;
+  border: 0.25vh solid rgba(79,156,255,1);
+  color: white;
+
+  box-shadow: 0 0 1.8vh rgba(79,156,255,0.3);
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.try-dual-btn:hover {
+  background: rgba(79,156,255,0.12);
+}
+
+/* ===================================================== */
+/* DOWNLOAD SECTION                                       */
+/* ===================================================== */
+.download-section {
+  margin-top: 120px;
+  width: 90%;
+  max-width: 1100px;
+  height: 60vh;
+
+  margin-left: auto;
+  margin-right: auto;
+
+  background: rgba(0,0,0,0.6);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 18px;
+
+  box-shadow:
+    0 0 32px rgba(79,156,255,0.12),
+    0 0 12px rgba(79,156,255,0.08);
+
+  /* ✅ 关键修改：不再垂直居中，而是从上往下排，留一点顶部间距 */
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 6vh;   /* 顶部留 12% 视口高度的空隙 */
+  padding-bottom: 2vh; /* 底部少量 padding，避免太贴底 */
+}
+
+.download-inner {
+  width: 80%;
+  max-width: 900px;
+  text-align: center;
+}
+
+.download-title {
+  color: #3b82f6;
+  font-size: 4vh;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.download-subtitle {
+  font-size: 13px;
+  color: #9EA8BB;
+  margin-bottom: 9vh;
+}
+
+/* Rows */
+.download-row {
+  width: 100%;
+  margin-top: 25px;
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+}
+.download-row.double-row {
+  display: flex;
+  justify-content: center;
+  gap: 99px;   /* ← 按钮之间的距离 */
+  margin-top: 6vh;
+}
+
+/* Buttons */
+.download-btn {
+  padding: 12px 26px;
+  font-size: 16px;
   border-radius: 12px;
 
   background: transparent;
@@ -561,9 +653,207 @@ body {
 
   box-shadow: 0 0 12px rgba(79,156,255,0.3);
   cursor: pointer;
-  transition: 0.2s ease;
+  transition: 0.25s ease;
+}
+.download-btn {
+  min-width: 190px;     /* 固定一个足够容纳最长文字的宽度 */
+  text-align: center;
 }
 
-.try-dual-btn:hover {
-  background: rgba(79,156,255,0.12);
+.download-btn:hover {
+  background: rgba(79,156,255,0.15);
+}
+.primary-download-btn {
+  font-size: 18px;
+}
+.primary-download-btn {
+  min-width: 260px;     /* 固定一个足够容纳最长文字的宽度 */
+  text-align: center;
+}
+
+.primary-download-btn:hover {
+  background: rgba(79,156,255,0.15);
+}
+
+
+/* ===================================================== */
+/* TECHNICAL ANALYSIS SECTION                             */
+/* ===================================================== */
+.tech-analysis-section {
+  margin-top: 120px;
+  margin-bottom: 120px;
+  width: 100%;
+  text-align: center;
+}
+
+.tech-analysis-title {
+  font-size: 34px;
+  font-weight: 700;
+}
+/* ===================================================== */
+/* INFO SECTION — New Cards (Local Model / IAB / Algorithm)
+/* ===================================================== */
+.tech-analysis-title {
+  font-size: 39px;
+  font-weight: 700;
+  text-align: left;
+  color: white;
+
+  margin: 10vh auto 2vh auto; 
+  width: 90%;
+  max-width: 1100px;             /* 与 page layout 一致 */
+  opacity: 0.95;
+}
+.info-section {
+  width: 90%;
+  max-width: 1100px;
+  margin: 1vh auto 10vh auto; /* 这里你自己调 */
+  display: flex;
+  flex-direction: column;
+  gap: 5vh;    /* 卡片之间的间距 */
+}
+
+/* ===== 基础卡片样式 ===== */
+.info-card {
+  padding: 35px 40px;
+  border-radius: 16px;
+  background: rgba(0,0,0,0.72);
+  border: 1px solid rgba(255,255,255,0.08);
+  backdrop-filter: blur(10px);
+  transition: 0.35s ease;
+  cursor: default;
+}
+
+/* Hover 效果（与 Interface Showcase 完全一致） */
+.info-card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(79,156,255,0.35);
+  box-shadow:
+    0 0 32px rgba(79,156,255,0.18),
+    0 0 10px rgba(79,156,255,0.12),
+    0 0 0 1px rgba(255,255,255,0.06);
+}
+
+/* ===== 文字颜色 ===== */
+.info-title {
+  font-size: 32px;
+  font-weight: 700;
+  color: #4F9CFF;
+  margin-bottom: 12px;
+}
+
+.info-subtitle {
+  font-size: 20px;
+  color: #ccd6f6;
+  margin-bottom: 18px;
+}
+
+.info-text {
+  font-size: 16px;
+  color: #9eb0c4;
+  line-height: 1.65;
+  max-width: 900px;
+}
+
+/* ===== 左对齐 / 右对齐 ===== */
+.info-card.left {
+  text-align: left;
+}
+
+.info-card.right {
+  text-align: right;
+}
+
+/* ===== fade-in 动画（使用你已有的 fade-in 样式） ===== */
+.info-card.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeUp 0.8s ease forwards;
+}
+
+/* ===== 响应式适配 ===== */
+@media (max-width: 800px) {
+  .info-card {
+    padding: 28px 26px;
+  }
+  .info-title {
+    font-size: 28px;
+  }
+  .info-subtitle {
+    font-size: 17px;
+  }
+  .info-card.right,
+  .info-card.left {
+    text-align: left;  /* 小屏统一左对齐，避免右对齐太挤 */
+  }
+}
+
+/* ===================================================== */
+/* COMPARISON TABLE SECTION                              */
+/* ===================================================== */
+
+.comparison-section {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 6vh 0;
+}
+
+.comparison-container {
+  width: 95%;
+  max-width: 1100px;
+}
+
+/* ───────────────────────────── */
+/* TABLE                        */
+/* ───────────────────────────── */
+
+.comparison-table {
+  width: 100%;
+  border-collapse: collapse;   /* 🟩 关键：让线条连贯不间断 */
+  background: transparent;     /* 透明背景 */
+}
+
+/* Header */
+.comparison-table thead th {
+  padding: 20px 10px;
+  text-align: center;
+  font-size: 2.2vh;
+  font-weight: 600;
+  color: white;
+  background: rgba(255, 255, 255, 0.08);  
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+/* Body rows */
+.comparison-table tbody td,
+.comparison-table tbody th {
+  padding: 18px 10px;
+  font-size: 1.9vh;
+  color: rgba(255, 255, 255, 0.9);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06); /* 🟩 极淡分割线（像 Framer） */
+  border-right: 1px solid rgba(255, 255, 255, 0.03);  /* 🟩 垂直线，不会太硬 */
+}
+
+/* 最后一列不要竖线 */
+.comparison-table tbody td:last-child {
+  border-right: none;
+}
+.comparison-table thead th:last-child {
+  border-right: none;
+}
+
+/* 左侧标题列（绿色） */
+.comparison-table .row-title {
+  font-weight: 700;
+  width: 26%;
+  text-align: left;
+  color: #9bc2ff;  /* 你的蓝绿色 */
+  border-right: 1px solid rgba(255, 255, 255, 0.08);  /* 稍微明确一点 */
+}
+
+/* Hover 效果 */
+.comparison-table tbody tr:hover {
+  background: rgba(255, 255, 255, 0.04);
+  transition: 0.2s;
 }

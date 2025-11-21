@@ -143,3 +143,38 @@ document.addEventListener("DOMContentLoaded", () => {
 document.querySelectorAll('.fade-in').forEach((el, index) => {
   el.style.animationDelay = `${index * 0.15}s`;
 });
+
+// Hover text mapping for all download buttons
+const downloadHoverMap = {
+  ".primary-download-btn": "Download from GitHub",
+  ".mac-btn": "Google Drive",
+  ".win-btn": "Google Drive"
+};
+
+Object.entries(downloadHoverMap).forEach(([selector, hoverText]) => {
+  const btn = document.querySelector(selector);
+  if (!btn) return;
+
+  const defaultText = btn.textContent;
+
+  btn.addEventListener("mouseenter", () => {
+    btn.textContent = hoverText;
+  });
+
+  btn.addEventListener("mouseleave", () => {
+    btn.textContent = defaultText;
+  });
+});
+// ======================================================
+// Browser Extension download link
+// ======================================================
+const browserExtBtn = document.querySelector(".primary-download-btn");
+
+if (browserExtBtn) {
+  browserExtBtn.addEventListener("click", () => {
+    window.open(
+      "https://github.com/Bangrui95/LocalAI_Analyzer/blob/main/Browser_Extension/LocalAI%20Analyzer.zip",
+      "_blank"
+    );
+  });
+}
