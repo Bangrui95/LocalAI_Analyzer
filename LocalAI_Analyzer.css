@@ -383,8 +383,22 @@ html {
   padding: 25px;
   border-radius: 14px;
   border: 1px solid rgba(255,255,255,0.08);
+  transition: 0.25s ease;
 }
 
+.feature-card:hover h3 {
+  color: #4F9CFF;  
+  transition: 0.2s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-0.1px);
+  border-color: rgba(79,156,255,0.35);
+  box-shadow:
+    0 0 22px rgba(79,156,255,0.18),
+    0 0 8px rgba(79,156,255,0.12),
+    0 0 0 1px rgba(255,255,255,0.06);
+}
 
 
 /* ===================================================== */
