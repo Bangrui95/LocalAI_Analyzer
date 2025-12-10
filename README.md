@@ -11,6 +11,7 @@ A browser extension that uses local models for offline data analysis, converting
 <div align="center">
     <img src="image/image.png" width="auto">
   </a>
+</div>
 
 ## Dowload:
 ### Browser_extension: [🔗Link](https://drive.google.com/drive/folders/1uS9LyoyJMPp-Z9rMY7-QuZVTenEHB4Pr?usp=drive_link)
