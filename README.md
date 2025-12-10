@@ -13,13 +13,15 @@ A browser extension that uses local models for offline data analysis, converting
   </a>
 </div>
 
+
+#
+
 ## Dowload:
 ### Browser_extension: [🔗Link](https://drive.google.com/drive/folders/19L_4yPwL5UBmnd_i-g22QqQ5pGPtXnSj?usp=drive_link)
 
 ### Backend （Mac）:[🔗Link](https://drive.google.com/drive/folders/1fOTmFW8-qO8_eq2RZ0VW3gkd2RWTZ7iH?usp=drive_link)
 
 ### Backend （Windows）:[🔗Link](https://drive.google.com/drive/folders/1H2T7Zp49r7JaXkyLdZ6qC29JDV4I8QiK?usp=drive_link)
-
 
 
 ##  Installation:
@@ -39,6 +41,8 @@ A browser extension that uses local models for offline data analysis, converting
 
 ### 3️⃣ Self-check & local connection
 ![alt text](<image/readme_image/Screenshot 2025-12-10 at 17.56.54.png>)
+
+# 
 
 ## How to Use：
 
@@ -107,19 +111,19 @@ The system recommends content based on your personal interest tags, and all reco
 
 ### ➡️ Backend system
 
-#### System Check
+#### 🎛️ System Check
 
 ![alt text](<image/readme_image/Screenshot 2025-12-10 at 19.29.59.png>)
 
 
-#### Local communication connection
+#### 🎛️ Local communication connection
 `INFO:     Uvicorn running on http://127.0.0.1:11668`
 
 ![alt text](<image/readme_image/Screenshot 2025-12-10 at 19.32.09.png>)
 
 
 
-#### Enable deep analysis
+#### 🎛️ Enable deep analysis
 `[Setting] Setting: deepParsing=True, TOP_N=5, THRESHOLD=0.39, granularityLevel=3, samplingCount=100, blacklistCount=2`
 
 
@@ -130,7 +134,7 @@ The system recommends content based on your personal interest tags, and all reco
 ![alt text](<image/readme_image/Screenshot 2025-12-10 at 18.29.43.png>)
 
 
-#### Update the article subscription database
+#### 🎛️ Update the article subscription database
 
 `[RSS] Update request received — starting fetch and analysis...`
 
@@ -143,7 +147,47 @@ The system recommends content based on your personal interest tags, and all reco
 ![alt text](<image/readme_image/Screenshot 2025-12-10 at 19.43.13.png>)
 
 
-#### Enable auto-update
+#### 🎛️ Enable auto-update
 `[AutoUpdate] Waiting x hours before first automatic update...`
 
 ![alt text](<image/readme_image/Screenshot 2025-12-10 at 19.46.57.png>)
+
+
+
+# 
+
+## FAQ
+
+### ➡️ Apple could not verify “LocalAI_analyse” is free of malware
+
+
+The analysis system is currently in a testing phase and is not available on any platforms. You will need to manually grant trust before it can run properly.
+
+![alt text](image/readme_image/FAQ/c3d6178dbb58d5242a4279e91a232106.png)
+
+![alt text](image/readme_image/FAQ/bef061c776b76cc939df5a50a642084f.png)
+
+
+Because the backend program is not signed or notarized by Apple, macOS may block it during development. This issue will be resolved in the official release, but for now you will need to manually remove the restriction.
+
+####  Run the command in Terminal
+`xattr -dr com.apple.quarantine "~/Downloads/LocalAI_analyse"`
+
+`xattr -dr com.apple.quarantine "/YOUR_PATH/LocalAI_analyse"`
+
+![alt text](image/readme_image/FAQ/8695fcd7d8cb3c5d12313f7ef791a043.png)
+
+
+
+### ➡️ Unable to find the history file
+To prevent information leakage, the local backend system only accesses the fixed folder path “browser_history.” If the browser’s download location has been changed, the system will be unable to locate the corresponding file.
+#### Please use the system’s default download path, or manually select a download path to browser_history.
+![alt text](<image/readme_image/FAQ/Screenshot 2025-12-10 at 20.16.49.png>)
+
+
+### ➡️ Unable to use the personalized recommendation page
+The personalized recommendation page relies on the browser’s New Tab page, so using this feature requires replacing the default New Tab page.
+
+#### Select"Keep it" to allow this extension to replace the New Tab page.
+
+![alt text](<image/readme_image/FAQ/Screenshot 2025-12-10 at 20.30.26.png>)
