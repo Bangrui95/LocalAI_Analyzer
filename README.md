@@ -8,12 +8,17 @@
 # LocalAI_Analyzer
 A browser extension that uses local models for offline data analysis, converting web browsing history into personal interest labels to support personalised content recommendations.
 
+<div align="center">
+    <img src="image/image.png" width="199px">
+  </a>
+
 ## Dowload:
 ### Browser_extension: [🔗Link](https://drive.google.com/drive/folders/1uS9LyoyJMPp-Z9rMY7-QuZVTenEHB4Pr?usp=drive_link)
 
 ### Backend （Mac）:[🔗Link](https://drive.google.com/drive/folders/1fOTmFW8-qO8_eq2RZ0VW3gkd2RWTZ7iH?usp=drive_link)
 
-### Backend （Windows）:
+### Backend （Windows）:[🔗Link](https://drive.google.com/drive/folders/1H2T7Zp49r7JaXkyLdZ6qC29JDV4I8QiK?usp=drive_link)
+
 
 
 ##  Installation:
