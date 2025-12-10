@@ -103,3 +103,47 @@ Enable personalized content recommendations
 The system recommends content based on your personal interest tags, and all recommended articles come from your subscribed sources.
 
 ![alt text](<image/readme_image/My Movie - GIF 动图.gif>)
+
+
+### ➡️ Backend system
+
+#### System Check
+
+![alt text](<image/readme_image/Screenshot 2025-12-10 at 19.29.59.png>)
+
+
+#### Local communication connection
+`INFO:     Uvicorn running on http://127.0.0.1:11668`
+
+![alt text](<image/readme_image/Screenshot 2025-12-10 at 19.32.09.png>)
+
+
+
+#### Enable deep analysis
+`[Setting] Setting: deepParsing=True, TOP_N=5, THRESHOLD=0.39, granularityLevel=3, samplingCount=100, blacklistCount=2`
+
+
+`[Analysis] Starting full analysis pipeline...`
+
+
+
+![alt text](<image/readme_image/Screenshot 2025-12-10 at 18.29.43.png>)
+
+
+#### Update the article subscription database
+
+`[RSS] Update request received — starting fetch and analysis...`
+
+`[Setting] Configuration loaded: {   }`
+
+`[RSS] Only keeping articles newer than xx days.`
+
+`[RSS] Summary saved, total: xxx items`
+
+![alt text](<image/readme_image/Screenshot 2025-12-10 at 19.43.13.png>)
+
+
+#### Enable auto-update
+`[AutoUpdate] Waiting x hours before first automatic update...`
+
+![alt text](<image/readme_image/Screenshot 2025-12-10 at 19.46.57.png>)
