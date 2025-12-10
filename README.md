@@ -9,7 +9,7 @@
 A browser extension that uses local models for offline data analysis, converting web browsing history into personal interest labels to support personalised content recommendations.
 
 <div align="center">
-    <img src="image/image.png" width="199px">
+    <img src="image/image.png" width="auto">
   </a>
 
 ## Dowload:
