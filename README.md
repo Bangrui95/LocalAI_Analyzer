@@ -44,7 +44,7 @@ A browser extension that uses local models for offline data analysis, converting
 
 #### A local backend system built with Python + FastAPI:
 
-•	Loading embedding models (SentenceTransformer)
+•	Embedding models (SentenceTransformer)
 
 •	Analyzing browser history files
 
