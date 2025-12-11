@@ -427,9 +427,38 @@ html {
 /* FOOTER                                                 */
 /* ===================================================== */
 .footer {
-  padding: 40px 0;
+  padding: 20px 0;
   text-align: center;
   color: #9BA2AE;
+}
+
+.footer p {
+  margin-bottom: 12px;
+  line-height: 1.5;
+}
+
+/* 最后一个段落去掉底部间距 */
+.footer p:last-child {
+  margin-bottom: 0;
+}
+
+/* GitHub 链接样式 */
+.gh-link {
+  text-decoration: none;
+  color: #4F9CFF; /* 使用你网站的主题蓝色 */
+  font-weight: 600;
+  font-size: 15px;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px; /* 文字和箭头之间的间距 */
+}
+
+/* Hover 效果：变白并加下划线 */
+.gh-link:hover {
+  color: #ffffff;
+  text-decoration: underline;
+  transform: translateY(-1px); /* 轻微上浮效果 */
 }
 
 
