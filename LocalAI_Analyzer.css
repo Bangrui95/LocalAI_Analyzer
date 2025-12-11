@@ -108,7 +108,7 @@ html {
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: 80px 16px 40px; /* 顶部留出 Header 的空间 */
+  padding: 66px 16px 40px; /* 顶部留出 Header 的空间 */
 }
 
 .hero-center {
@@ -430,7 +430,6 @@ html {
   padding: 40px 0;
   text-align: center;
   color: #9BA2AE;
-  border-top: 1px solid rgba(255,255,255,0.07);
 }
 
 
@@ -447,7 +446,7 @@ html {
   max-width: 1100px;
   
   /* 自适应高度：移除固定 height，使用 min-height */
-  min-height: calc(100vh - var(--header-height));
+  min-height: calc(96vh - var(--header-height));
   height: auto; 
 
   margin: 0 auto;
@@ -612,17 +611,32 @@ html {
   box-shadow: 0 0 12px rgba(79,156,255,0.3);
   cursor: pointer;
   transition: 0.2s ease;
+
+  /* 👉 新增：固定大小、居中文字 */
+  width: 180px;        /* 固定宽度，你可以换成 170 / 200 等 */
+  /* 或者用：flex: 0 0 180px; 也可以 */
+  text-align: center;
 }
 
 .try-dual-btn:hover {
   background: rgba(79,156,255,0.12);
 }
 
+.try-subtitle {
+  font-size: clamp(16px, 2vw, 18px);
+  color: #9eb0c4;
+  margin-top: -2px;
+  margin-bottom: 28px;
+  text-align: center;
+  opacity: 0.88;
+}
+
 /* ===================================================== */
 /* DOWNLOAD SECTION                                       */
 /* ===================================================== */
 .download-section {
-  margin-top: 120px;
+  margin-top: 60px;
+  margin-bottom: 60px;
   width: 90%;
   max-width: 1100px;
   
@@ -979,5 +993,505 @@ html {
   .comparison-table tbody td {
     font-size: 13px;
     padding: 12px 6px;
+  }
+}
+
+
+/* ===================================================== */
+/* EXTENSION FLOW SECTION – 全新版本 (Fixed Height Layout) */
+/* ===================================================== */
+.flow-section {
+  width: 90%;
+  max-width: 1100px;
+  margin: 100px auto 0; /* 稍微减少顶部边距 */
+  padding: 24px;        /* 统一内边距 */
+
+  background: rgba(0,0,0,0.6);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 18px;
+  box-shadow:
+    0 0 32px rgba(79,156,255,0.12),
+    0 0 12px rgba(79,156,255,0.08);
+
+  /* 关键修改：Flex 布局 + 固定高度 */
+  display: flex;
+  flex-direction: column; 
+  justify-content: flex-start;
+  align-items: center;
+
+  /* 强制固定高度，超出部分隐藏（交给子元素滚动） */
+  height: calc(98vh - var(--header-height));
+  overflow: hidden; 
+
+  scroll-margin-top: var(--header-height);
+  box-sizing: border-box; /* 确保 padding 不会撑大高度 */
+}
+
+/* 内部滚动区域容器 */
+.flow-inner {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.flow-title {
+  font-size: clamp(24px, 3vh, 32px); /* 字体稍微调小适应一屏 */
+  font-weight: 700;
+  color: #3b82f6;
+  margin-bottom: 15px;
+  text-align: center;
+  flex-shrink: 0; /* 防止标题被压缩 */
+}
+
+/* 顶部 4 个 tab 卡片 */
+.flow-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+  flex-shrink: 0; /* 防止 Tab 被压缩 */
+  margin-bottom: 15px;
+}
+
+.flow-card {
+  height: 42px; /* 稍微改矮一点 */
+  padding: 0 10px;
+  background: rgba(0,0,0,0.75);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: 0.25s ease;
+}
+
+.flow-card h3 {
+  font-size: 15px;
+  font-weight: 600;
+  color: #ffffff;
+  margin: 0;
+  white-space: nowrap;
+}
+
+.flow-card.active {
+  border-color: rgba(79,156,255,0.7);
+  background: rgba(79,156,255,0.1);
+  box-shadow: 0 0 15px rgba(79,156,255,0.15);
+}
+
+/* ===================================================== */
+/* EXTENSION FLOW SECTION – 全新版本 (Auto-Scale, No Scroll) */
+/* ===================================================== */
+.flow-section {
+  width: 90%;
+  max-width: 1100px;
+  margin: 100px auto 0;
+  padding: 24px;
+
+  background: rgba(0,0,0,0.6);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 18px;
+  box-shadow:
+    0 0 32px rgba(79,156,255,0.12),
+    0 0 12px rgba(79,156,255,0.08);
+
+  /* 核心布局：Flex Column */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+
+  /* --- 强制限制高度 --- */
+  height: calc(98vh - var(--header-height));
+  /* --- 绝对禁止滚动 --- */
+  overflow: hidden; 
+
+  scroll-margin-top: var(--header-height);
+  box-sizing: border-box;
+}
+
+.flow-inner {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  /* 确保 inner 容器也不会溢出 */
+  overflow: hidden; 
+}
+
+/* 标题和 Tab 栏不应缩放，设为 flex-shrink: 0 */
+.flow-title {
+  font-size: clamp(24px, 3vh, 32px);
+  font-weight: 700;
+  color: #3b82f6;
+  margin-bottom: 15px;
+  text-align: center;
+  flex-shrink: 0; 
+}
+
+.flow-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+  margin-bottom: 10px;
+  flex-shrink: 0; 
+}
+
+.flow-card {
+  height: 42px;
+  padding: 0 10px;
+  background: rgba(0,0,0,0.75);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: 0.25s ease;
+}
+
+.flow-card h3 {
+  font-size: 15px;
+  font-weight: 600;
+  color: #ffffff;
+  margin: 0;
+  white-space: nowrap;
+}
+
+.flow-card.active {
+  border-color: rgba(79,156,255,0.7);
+  background: rgba(79,156,255,0.1);
+  box-shadow: 0 0 15px rgba(79,156,255,0.15);
+}
+
+/* ===================================================== */
+/* DISPLAY AREA (绿色框区域 - 自动缩放核心)               */
+/* ===================================================== */
+.flow-display {
+  width: 100%;
+  /* 占据剩余所有高度 */
+  flex: 1; 
+  /* 关键：允许 flex 子项缩小到内容尺寸以下 */
+  min-height: 0; 
+  
+  display: flex;
+  justify-content: center;
+  align-items: center; /* 垂直居中内容 */
+  overflow: hidden;    /* 禁止出现滚动条 */
+  margin-top: 5px;
+}
+
+/* 每个 panel 撑满 flow-display */
+.flow-panel {
+  display: none;
+  width: 100%;
+  height: 100%; /* 撑满父容器高度 */
+  max-width: 1000px;
+  
+  /* Panel 内部也用 Flex 布局来管理垂直空间 */
+  flex-direction: column;
+  justify-content: center; /* 内容垂直居中 */
+  align-items: center;
+  
+  animation: fadeInPanel 0.4s ease;
+}
+
+.flow-panel.is-visible {
+  display: flex; /* 激活时用 flex */
+}
+
+@keyframes fadeInPanel {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* 默认总览图片 */
+.flow-panel-default img {
+  width: 100%;
+  height: 100%;
+  /* 图片在框内自适应缩放，保持比例，绝不溢出 */
+  object-fit: contain; 
+  border-radius: 14px;
+}
+
+/* ===================================================== */
+/* Panel 1: Main Control (左右布局)                       */
+/* ===================================================== */
+#panel-main {
+  /* 继承 flow-panel 的 flex column */
+}
+
+.flow-main-layout {
+  /* 占据主要高度 */
+  flex: 1;
+  min-height: 0; /* 允许压缩 */
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+}
+
+.flow-main-col {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%; /* 撑满高度 */
+  justify-content: center;
+}
+
+.flow-main-subtitle {
+  font-size: 16px;
+  font-weight: 600;
+  color: #4F9CFF;
+  margin-bottom: 8px;
+  flex-shrink: 0; /* 标题不压缩 */
+}
+
+/* 图片自适应逻辑 */
+.flow-main-col img {
+  width: 100%;
+  /* 占据剩余高度 */
+  flex: 1; 
+  /* 允许缩小 */
+  min-height: 0; 
+  /* 保持比例包含在容器内 */
+  object-fit: contain; 
+  
+  border-radius: 12px;
+  box-shadow: 0 0 18px rgba(0,0,0,0.6);
+}
+
+.flow-main-caption {
+  margin-top: 12px;
+  font-size: 14px;
+  color: #c3cfdf;
+  max-width: 80%;
+  flex-shrink: 0; /* 文字不压缩 */
+}
+
+
+/* ===================================================== */
+/* EXTENSION WORKFLOW (Refactored Layout)                 */
+/* ===================================================== */
+
+.wf-section {
+  padding: 100px 0;
+  width: 100%;
+}
+
+/* --- Section Titles --- */
+.wf-main-title {
+  text-align: center;
+  font-size: clamp(32px, 5vw, 42px);
+  font-weight: 700;
+  color: #3b82f6; 
+  margin-bottom: 10px;
+}
+
+.wf-main-subtitle {
+  text-align: center;
+  font-size: 16px;
+  color: #9eb0c4;
+  margin-bottom: 70px;
+}
+
+/* --- Card Container --- */
+.wf-card {
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 24px;
+  padding: 50px;
+  margin-bottom: 80px; /* 卡片之间的间距加大 */
+  box-shadow: 
+    0 0 40px rgba(0, 0, 0, 0.3),
+    0 0 0 1px rgba(79, 156, 255, 0.08);
+}
+
+/* --- Card Header --- */
+.wf-header {
+  margin-bottom: 40px;
+  text-align: center; /* 标题居中更美观 */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  padding-bottom: 30px;
+}
+
+.wf-step-tag {
+  display: inline-block;
+  padding: 6px 14px;
+  background: rgba(59, 130, 246, 0.15);
+  color: #3b82f6;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.wf-title {
+  font-size: 32px;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 15px;
+}
+
+.wf-desc {
+  font-size: 16px;
+  color: #9eb0c4;
+  line-height: 1.6;
+  max-width: 700px;
+  margin: 0 auto; /* 文字居中 */
+}
+
+/* ===================================================== */
+/* LAYOUT 1: GRID (For Step 1 - Main Control)             */
+/* ===================================================== */
+.wf-content-grid.dual-col {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 25px; /* 稍微减小间距 */
+  width: 100%;
+  
+  /* ⭐ 新增：限制最大宽度并居中 */
+  max-width: 750px; /* 原来是撑满约1000px，改为750px会让图片整体缩小约25% */
+  margin: 0 auto;   /* 居中显示 */
+}
+
+/* 手机端适配保持不变 */
+@media (max-width: 900px) {
+  .wf-content-grid.dual-col {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    max-width: 100%; /* 手机端恢复宽度，保证看不清 */
+  }
+}
+
+/* ===================================================== */
+/* LAYOUT 2: VERTICAL STACK (For Steps 2 & 3)             */
+/* ===================================================== */
+.wf-content-stack {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* 让图片在卡片中居中 */
+  gap: 60px; /* 上下图片之间的距离 */
+  width: 100%;
+}
+
+/* 单独控制堆叠模式下的内容块 */
+.wf-media-box.large-view {
+  width: 100%;
+  max-width: 850px; /* 限制最大宽度，防止图片太大失真 */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* ===================================================== */
+/* MEDIA BOX (Shared Styles)                              */
+/* ===================================================== */
+.wf-media-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #4F9CFF; 
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.wf-img-wrapper {
+  width: 100%;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.4); 
+  transition: transform 0.3s ease;
+}
+
+.wf-img-wrapper img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* .wf-img-wrapper:hover {
+  transform: translateY(-5px);
+  border-color: rgba(79, 156, 255, 0.4);
+} */
+
+
+/* ===================================================== */
+/* SETTINGS LIST (Step 4)                                 */
+/* ===================================================== */
+.wf-settings-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.wf-setting-item {
+  background: rgba(255, 255, 255, 0.03);
+  padding: 25px;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  transition: 0.3s;
+}
+
+.wf-setting-item:hover {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(79, 156, 255, 0.3);
+}
+
+.wf-icon {
+  font-size: 36px;
+  margin-bottom: 15px;
+  display: block;
+}
+
+.wf-setting-item h4 {
+  color: #fff;
+  font-size: 17px;
+  margin-bottom: 10px;
+}
+
+.wf-setting-item p {
+  font-size: 14px;
+  color: #9eb0c4;
+  line-height: 1.5;
+}
+
+/* ===================================================== */
+/* RESPONSIVE DESIGN                                      */
+/* ===================================================== */
+@media (max-width: 900px) {
+  .wf-card {
+    padding: 30px 20px;
+  }
+  
+  /* 在手机上，原本并排的 Control Panel 也变成垂直的 */
+  .wf-content-grid.dual-col {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  
+  .wf-settings-list {
+    grid-template-columns: 1fr;
+  }
+
+  .wf-title {
+    font-size: 26px;
   }
 }
