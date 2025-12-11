@@ -6,16 +6,56 @@
 </div>
 
 # LocalAI Analyzer
-### [🔗 LocalAI_Analyzer](https://bangrui95.github.io/LocalAI_Analyzer/)
+### [🌐 LocalAI_Analyzer](https://bangrui95.github.io/LocalAI_Analyzer/)
 
 
 A browser extension that uses local models for offline data analysis, converting web browsing history into personal interest labels to support personalised content recommendations.
 
 <div align="center">
-    <img src="image/image.png" width="auto">
+    <img src="image/readme_image/FAQ/Screenshot 2025-12-11 at 01.47.51.png" width="auto">
   </a>
 </div>
 
+# 
+## Application Architecture
+
+#### This application consists of two main modules: a browser extension (frontend) and a local Python backend analysis system. The two components communicate locally, combining FastAPI, SentenceTransformers, JavaScript, and HTML/CSS to deliver a fully on-device personalized recommendation system.
+
+### The system currently supports Chromium-based browsers (e.g., Google Chrome, Microsoft Edge, Brave, Arc) and local backend execution on macOS and Windows.
+
+## Applications
+
+### Browser-extension
+
+#### Frontend UI for the browser:
+
+•	Interest tag editing page
+
+•	Personalized recommendation page
+
+•	Browser history import and settings page
+
+### Technologies used:
+#### HTML, CSS, JavaScript, Chrome Extension Manifest v3
+
+#
+
+### Backend
+
+#### A local backend system built with Python + FastAPI:
+
+•	Loading embedding models (SentenceTransformer)
+
+•	Analyzing browser history files
+
+•	Generating interest tags (IAB Taxonomy)
+
+•	Performing deep webpage parsing (BeautifulSoup)
+
+•	Providing RSS subscription analysis and personalized recommendations
+
+### Technologies used:
+#### FastAPI, Uvicorn, SentenceTransformers, BeautifulSoup, NumPy, JSON
 
 #
 
@@ -194,3 +234,26 @@ The personalized recommendation page relies on the browser’s New Tab page, so 
 #### Select"Keep it" to allow this extension to replace the New Tab page.
 
 ![alt text](<image/readme_image/FAQ/Screenshot 2025-12-10 at 20.30.26.png>)
+
+
+
+
+# 
+
+## 📇 Contact
+
+### The project is under continuous development. If you have any questions or suggestions, feel free to contact the author.
+
+### Bangrui: wbangrui95@outlook.com
+
+# 
+
+<div align="center">
+    <img src="image/image.png" width="auto">
+  </a>
+</div>
+
+
+<div align="center">
+  <p>© 2025 LocalAI Analyzer — Designed by Bangrui Wang</p>
+</div>
