@@ -1522,3 +1522,77 @@ html {
     font-size: 26px;
   }
 }
+
+
+
+/* ===================================================== */
+/* FIXED QR CODE (Bottom Right)                          */
+/* ===================================================== */
+/* ===================================================== */
+/* FIXED QR CODE (Bottom Right)                          */
+/* ===================================================== */
+.fixed-qr-code {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  z-index: 9999;
+  
+  /* 简单的入场动画 */
+  opacity: 0;
+  animation: qrFadeIn 1s ease 1s forwards;
+}
+
+/* 容器样式：彻底透明，无阴影，无边框 */
+.qr-box {
+  background: transparent; /* 背景透明 */
+  box-shadow: none;        /* 去掉阴影 */
+  border: none;            /* 去掉边框 */
+  backdrop-filter: none;   /* 去掉磨砂 */
+  padding: 0;              /* 去掉内边距 */
+  
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+/* 悬停效果 */
+.qr-box:hover {
+  transform: translateY(-5px);
+}
+
+/* 文字样式：修改为你要求的蓝色 */
+.qr-box p {
+  font-size: 16px;
+  color: #4F9CFF;          /* 蓝色文字 */
+  font-weight: 600;
+  margin-top: 10px;        /* 文字和二维码的间距 */
+  line-height: 1.2;
+  text-shadow: 0 0 10px rgba(0,0,0,0.8); /* 加一点文字阴影防止背景太杂看不清 */
+}
+
+/* 图片样式：去掉所有白底 */
+.qr-box img {
+  width: 120px;            /* 大小 */
+  height: 120px;
+  display: block;
+  margin: 0 auto;
+  border-radius: 8px;      /* 圆角 */
+  
+  /* 关键：去掉图片背景 */
+  background-color: transparent; 
+  padding: 0;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.5); /* 给图片本身加一点深色投影，增加立体感 */
+}
+
+/* 手机端隐藏逻辑保持不变 */
+@media (max-width: 768px) {
+  .fixed-qr-code {
+    display: none;
+  }
+}
+
+/* 进场动画定义 */
+@keyframes qrFadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
