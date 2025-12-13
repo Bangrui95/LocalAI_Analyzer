@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LocalAI Analyzer — Settings</title>
+  <link rel="stylesheet" href="options.css" />
+</head>
+
+<body>
+  <div class="wrapper">
+    <h1>Extension Settings</h1>
+
+    <div class="settings-grid">
+      <!-- Browsing History -->
+      <div class="setting-block block-history">
+        <h2>Browsing History</h2>
+        <p class="explain">Adjust the number of days of browsing history to be analyzed.</p>
+        <p class="subtitle">Current Range: <span id="historyDaysValue">30</span> Days</p>
+        <input type="range" id="historyRange" min="1" max="90" value="30" />
+        <div class="marks"><span>1</span><span>30</span><span>60</span><span>90</span></div>
+      </div>
+
+      <!-- Deep Parsing -->
+      <div class="setting-block block-parsing">
+        <h2>Deep Parsing (BeautifulSoup)</h2>
+        <p class="explain">Toggle whether to enable deep webpage parsing for better embedding results.<br>(For online
+          use only)</p>
+        <label class="switch">
+          <input type="checkbox" id="useDeepParsing" />
+          <span class="slider"></span>
+        </label>
+      </div>
+
+      <!-- Granularity -->
+      <div class="setting-block block-granularity">
+        <h2>Granularity Level</h2>
+        <p class="explain">Control how detailed the data grouping should be in your analysis.</p>
+        <p class="subtitle">Current Level: <span id="granularityValue">2</span></p>
+        <input type="range" id="granularityRange" min="1" max="3" value="2" />
+        <div class="marks"><span>1</span><span>2</span><span>3</span></div>
+      </div>
+
+      <!-- Website Filter -->
+      <div class="setting-block block-filter">
+        <h2>Website Filter (Blacklist)</h2>
+        <p class="explain">Websites listed below will be excluded from data analysis.</p>
+        <div id="filterListContainer">
+          <div class="filter-item">
+            <input type="text" placeholder="example.com" />
+            <button class="remove-btn">×</button>
+          </div>
+        </div>
+        <div class="button-row">
+          <button id="addFilterBtn" class="sub-button">Add Website</button>
+          <button id="clearFilterBtn" class="sub-button danger">Clear All</button>
+        </div>
+      </div>
+
+      <!-- Sampling -->
+      <div class="setting-block block-sampling">
+        <h2>Label Count</h2>
+        <p class="explain">Number of personalized labels you want to retrieve.</p>
+        <p class="subtitle">Current numbers: <span id="samplingValue">20</span> Tags</p>
+        <input type="range" id="samplingRange" min="1" max="100" value="20" />
+        <div class="marks"><span>1</span><span style="margin-left: 5px;">50</span><span>100</span></div>
+      </div>
+    </div>
+
+    <!-- recommendation -->
+    <div class="setting-block block-newtab-toggle">
+      <div class="toggle-row">
+        <div class="toggle-text">
+          <h2>Personalized Recommendation Page<br>(For online use only)</h2>
+          <p class="explain">
+            Toggle to replace the default new tab page with your personalized recommendation dashboard.
+          </p>
+        </div>
+        <label class="switch">
+          <input type="checkbox" id="toggleNewtab" />
+          <span class="slider"></span>
+        </label>
+      </div>
+    </div>
+
+    <!-- RSS -->
+    <div class="settings-grid rss-grid">
+      <!-- RSS Source List -->
+      <div class="setting-block block-rss-source">
+        <h2>RSS Source List</h2>
+        <p class="explain">Add or remove RSS links to customize your news feed sources.</p>
+        <div id="rssListContainer"></div>
+        <div class="button-row">
+          <button id="addRSSBtn" class="sub-button">+ Add RSS Link</button>
+          <button id="clearRSSLinksBtn" class="sub-button danger">Clear All</button>
+        </div>
+      </div>
+
+      <div class="setting-block block-rss-days">
+        <h2>RSS Time Range</h2>
+        <p class="explain">Select how many recent days of articles to include from each RSS feed.</p>
+        <p class="subtitle">Current Range: <span id="rssDaysValue">14</span> Days</p>
+        <input type="range" id="rssDaysRange" min="1" max="30" value="14" />
+        <div class="marks"><span>1</span><span style="margin-right: 6px;">15</span><span>30</span></div>
+      </div>
+
+      <div class="setting-block block-rss-count">
+        <h2>Recommended Articles Count</h2>
+        <p class="explain">Define how many articles will be recommended from RSS analysis.</p>
+        <p class="subtitle">Current numbers: <span id="rssCountValue">20</span></p>
+        <input type="range" id="rssCountRange" min="1" max="100" value="20" />
+        <div class="marks"><span>1</span><span style="margin-left: 9px;">50</span><span>100</span></div>
+      </div>
+      <!-- update -->
+      <div class="setting-block block-rss-auto-update">
+        <h2>Automatic Update</h2>
+        <p class="explain">
+          Choose how often to automatically refresh RSS articles (0 = off).
+        </p>
+        <p class="subtitle">Current Interval: <span id="rssAutoUpdateValue">1</span>h</p>
+        <input type="range" id="rssAutoUpdateRange" min="0" max="24" step="0.5" value="1" />
+        <div class="marks"><span>0</span><span style="margin-left: 9px;">12</span><span>24</span></div>
+      </div>
+    </div>
+
+
+    <div class="block-rss-actions">
+      <h2>RSS Operations</h2>
+      
+      <div class="rss-operations-pair">
+        <div class="rss-row">
+          <span id="rssArticlesCount" class="rss-label">Articles: 666</span>
+          <button id="updateRSSBtn" class="rss-action-button">Update RSS Articles</button>
+        </div>
+
+        <div class="rss-row">
+          <span id="rssFileSize" class="rss-label">Size: 6.66 MB</span>
+          <button id="clearRSSCacheBtn" class="rss-action-button danger">Clear Cached RSS Articles</button>
+        </div>
+      </div>
+    </div>
+
+    <button id="saveBtn">Save Settings</button>
+
+    <p class="footer">
+      © 2025 LocalAI Analyzer — Designed by Bangrui Wang
+    </p>
+  </div>
+
+  <script src="options.js"></script>
+</body>
+
+</html>

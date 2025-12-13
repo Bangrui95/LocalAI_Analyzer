@@ -1,0 +1,245 @@
+/* ======== GLOBAL ======== */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, "Helvetica Neue", Arial, sans-serif;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  color: #e6e9f0;
+  background: #000000;
+  background-attachment: fixed;
+}
+
+/* ======== Layout ======== */
+.page-wrapper {
+  width: 100%;
+  padding: 19vh 6vw 6vh;
+  box-sizing: border-box;
+}
+
+/* ======== Search Box ======== */
+.search-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 60px;
+}
+
+.search-container form {
+  display: flex;
+  align-items: center;
+  width: 50%;
+  max-width: 800px;
+  background: #070708;
+  border: 2.66px solid rgba(110, 160, 255, 0.09);
+
+  border-radius: 30px;
+  padding: 6px 16px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.search-container form:hover {
+  border: 2.66px solid #2a3243;
+  box-shadow:
+    0 0 22px rgba(0, 25, 50, 0.55),
+    0 0 0 1px rgba(110, 160, 255, 0.05);
+
+}
+
+
+.search-container form:focus-within {
+  border-color: #3b82f6;
+  box-shadow: 0 0 15px rgba(59, 130, 246, 0.3);
+}
+
+.search-input {
+  flex: 1;
+  border: none;
+  outline: none;
+  font-size: 16px;
+  color: #e0e6f0;
+  padding: 10px 12px;
+  background: transparent;
+}
+
+.search-input::placeholder {
+  color: #7a7f87;
+}
+
+/* ======== Recommendation Section ======== */
+.recommend-section {
+  width: 60vw;
+  height: 60vh;
+  margin: 0 auto;
+  box-sizing: border-box;
+
+  background: #070708;
+  border: 0.5px solid #2b3242;
+  border-radius: 18px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
+
+  padding: 32px 36px;
+
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.section-title {
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #f0f3fa;
+  border-left: 4px solid #3b82f6;
+  padding-left: 12px;
+  letter-spacing: 0.3px;
+}
+
+/* ======== Sub Info ======== */
+.update-time {
+  font-size: 13px;
+  color: #a7afbf;
+  margin-bottom: 16px;
+  letter-spacing: 0.2px;
+}
+
+/* ======== Scrollable ======== */
+.recommend-scroll {
+  flex: 1;
+  overflow-y: auto;
+  padding-right: 10px;
+  scrollbar-width: thin;
+  scrollbar-color: #3b82f6 #1a1f2b;
+  animation: fadeIn 0.8s ease forwards;
+  opacity: 0;
+}
+
+.recommend-scroll::-webkit-scrollbar {
+  width: 8px;
+}
+
+.recommend-scroll::-webkit-scrollbar-thumb {
+  background-color: #3b82f6;
+  border-radius: 8px;
+}
+
+/* ======== Recommendation Cards ======== */
+.block {
+  background: #070708;
+  border: 0.3px solid #2d3545;
+  border-radius: 14px;
+  padding: 16px 18px;
+  margin-bottom: 16px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.block:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.25);
+}
+
+.block h2 {
+  font-size: 17px;
+  color: #60a5fa;
+  margin: 0 0 10px 0;
+  font-weight: 600;
+}
+
+.block ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+.block li {
+  margin-bottom: 6px;
+  line-height: 1.6;
+}
+
+.block a {
+  color: #e4e7ee;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.block a:hover {
+  color: #60a5fa;
+  text-decoration: underline;
+}
+
+.block small {
+  color: #9aa1b2;
+  font-size: 12px;
+}
+
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* ======== Footer Logo Glow Animation ======== */
+.footer-logo {
+  width: 100%;
+  text-align: center;
+  padding: 39px 0 6px;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
+
+  pointer-events: none;
+
+  animation: logoGlow 4s ease-in-out infinite;
+}
+
+@keyframes logoGlow {
+  0% {
+    text-shadow:
+      0 0 4px rgba(77, 141, 255, 0.3),
+      0 0 10px rgba(77, 141, 255, 0.15),
+      0 0 20px rgba(77, 141, 255, 0.1);
+    opacity: 0.9;
+  }
+
+  50% {
+    text-shadow:
+      0 0 6px rgba(77, 141, 255, 0.5),
+      0 0 16px rgba(77, 141, 255, 0.35),
+      0 0 30px rgba(77, 141, 255, 0.3);
+    opacity: 1;
+  }
+
+  100% {
+    text-shadow:
+      0 0 4px rgba(77, 141, 255, 0.3),
+      0 0 10px rgba(77, 141, 255, 0.15),
+      0 0 20px rgba(77, 141, 255, 0.1);
+    opacity: 0.9;
+  }
+}
+
+.logo-white {
+  color: #ffffff;
+}
+
+.logo-blue {
+  color: #4d8dff;
+}

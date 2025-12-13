@@ -1,0 +1,55 @@
+{
+  "manifest_version": 3,
+  "name": "LocalAI Analyzer",
+  "version": "6.0.0",
+  "description": "Analyze your browsing history locally with AI.",
+
+  "icons": {
+    "16": "icon.png",
+    "48": "icon.png",
+    "128": "icon.png"
+  },
+
+  "permissions": [
+    "history",
+    "downloads",
+    "storage",
+    "tabs"
+  ],
+
+  "host_permissions": [
+    "http://127.0.0.1:11668/*"
+  ],
+
+  "background": {
+    "service_worker": "background.js"
+  },
+
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icon.png",
+      "48": "icon.png",
+      "128": "icon.png"
+    }
+  },
+
+  "options_page": "options.html",
+
+  "chrome_url_overrides": {
+    "newtab": "newtab.html"
+  },
+
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "fonts/Google_Sans_Code/*.woff2"
+      ],
+      "matches": ["<all_urls>"]
+    }
+  ],
+
+  "minimum_chrome_version": "114.0",
+  "author": "whisky",
+  "homepage_url": "https://localhost/"
+}

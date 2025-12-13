@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>LocalAI Analyzer</title>
+  <link rel="stylesheet" href="popup.css" />
+</head>
+
+<body>
+  <div class="popup-card">
+
+    <!-- Background -->
+    <div class="popup-bg"></div>
+    <div class="popup-blob"></div>
+
+    <!-- infor-->
+    <div class="popup-wrapper">
+      <h1>Local AI Analyzer</h1>
+      <div id="runCircleBtn" class="start-container">
+        <button class="start-btn">START</button>
+      </div>
+      <div class="status" id="status">Checking backend status...</div>
+      <div class="small-btn-row">
+        <button id="exportBtn" class="small-btn">Export</button>
+        <button id="analyzeBtn" class="small-btn">Run</button>
+      </div>
+      <button id="viewBtn" class="big-btn">View Results</button>
+      <button id="settingsBtn" class="big-btn">Settings</button>
+    </div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+
+</html>

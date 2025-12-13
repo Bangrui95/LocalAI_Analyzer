@@ -1,0 +1,277 @@
+   html,
+   body {
+     margin: 0 !important;
+     padding: 0 !important;
+     width: 320px;
+     min-height: 360px;
+     font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+     background: #000000 !important;
+     color: #e6edf3;
+     text-align: center;
+     overflow: hidden;
+     background-clip: padding-box !important;
+     border: none !important;
+     outline: none !important;
+   }
+
+   /* =======================================================
+     background
+     ======================================================= */
+   .popup-card {
+     position: relative;
+     width: 320px;
+     height: auto;
+     overflow: hidden;
+     background: #000000;
+     padding-bottom: 10px;
+   }
+
+   .popup-bg {
+     position: absolute;
+     top: 50%;
+     left: 50%;
+     transform: translate(-50%, -50%);
+     width: 98%;
+     height: 98%;
+     background: rgba(0, 0, 0, 0.85);
+     backdrop-filter: blur(24px);
+     border-radius: 12px;
+     outline: 1px solid rgba(255, 255, 255, 0.05);
+     z-index: 1;
+     overflow: hidden;
+   }
+
+   .popup-blob {
+     position: absolute;
+     width: 160px;
+     height: 160px;
+     border-radius: 50%;
+     background: rgba(0, 195, 255, 0.45);
+     filter: blur(28px);
+     z-index: 0;
+     animation: popupBlobFloat 3s infinite linear;
+   }
+
+   /* animation */
+   @keyframes popupBlobFloat {
+     0% {
+       top: -40px;
+       left: -40px;
+     }
+     25% {
+       top: -40px;
+       left: calc(100% - 120px);
+     }
+     50% {
+       top: calc(100% - 120px);
+       left: calc(100% - 120px);
+     }
+     75% {
+       top: calc(100% - 120px);
+       left: -40px;
+     }
+     100% {
+       top: -40px;
+       left: -40px;
+     }
+   }
+
+   /* =======================================================
+     UI
+     ======================================================= */
+   .popup-wrapper {
+     position: relative;
+     z-index: 3;
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     padding: 20px 16px 12px 16px;
+   }
+
+   /* =======================================================
+     TITLES
+     ======================================================= */
+   h1 {
+     font-size: 23px;
+     font-weight: 800;
+     margin: 0 0 6px 0;
+     color: #ffffff;
+     margin-bottom: 39px;
+   }
+
+   p {
+     font-size: 12.5px;
+     color: #8b949e;
+     margin-bottom: 18px;
+   }
+
+   /* =======================================================
+     START BUTTON
+     ======================================================= */
+   .start-container {
+     position: relative;
+     padding: 4px;
+     background: linear-gradient(90deg, #00e676, #00c853);
+     border-radius: 50%;
+     transition: all 0.35s ease;
+     margin-bottom: 10px;
+     width: 166px;
+     height: 166px;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     border: 1px solid rgba(110, 160, 255, 0.09);
+     box-shadow:
+       0 0 22px rgba(0, 25, 50, 0.55),
+       0 0 0 1px rgba(110, 160, 255, 0.05);
+   }
+
+   .start-container::before {
+     content: "";
+     position: absolute;
+     inset: 0;
+     border-radius: 50%;
+     background: inherit;
+     opacity: 0;
+     transition: all 0.4s ease;
+     z-index: -1;
+   }
+
+   .start-container:hover::before {
+     opacity: 0.85;
+     filter: blur(1.5em);
+   }
+
+   .start-btn {
+     width: 100%;
+     height: 100%;
+     border-radius: 50%;
+     border: none;
+     background: #070708;
+     color: #ffffff;
+     font-size: 1.9em;
+     font-weight: 700;
+     cursor: pointer;
+
+     display: flex;
+     justify-content: center;
+     align-items: center;
+
+     box-shadow:
+       0 0 22px rgba(0, 25, 50, 0.45),
+       0 0 0 1px rgba(110, 160, 255, 0.05);
+     transition: 0.25s ease;
+   }
+   .start-btn:hover {
+     transform: scale(1.02);
+     box-shadow:
+       0 0 28px rgba(0, 195, 255, 0.18),
+       0 0 10px rgba(0, 195, 255, 0.12),
+       0 0 0 1px rgba(255, 255, 255, 0.06);
+   }
+   /* click */
+   .start-btn:active {
+     transform: scale(0.94);
+   }
+   .start-container.status-ok .start-btn {
+     background: #070708;
+   }
+   .start-container.status-error {
+     background: linear-gradient(90deg, #ff5252, #ff1744) !important;
+   }
+   .start-container.status-error .start-btn {
+     background: #000000;
+     color: rgb(255, 0, 0) ;
+   }
+
+   /* Run analyse */
+   .start-container.status-running {
+     background: linear-gradient(90deg, #00e676, #00c853);
+   }
+   .start-container.status-running::before {
+     opacity: 1;
+     animation: breathing 2s ease-in-out infinite;
+   }
+   @keyframes breathing {
+     0% {
+       opacity: 0.2;
+       filter: blur(0.5em);
+     }
+     50% {
+       opacity: 0.9;
+       filter: blur(1.6em);
+     }
+     100% {
+       opacity: 0.2;
+       filter: blur(0.5em);
+     }
+   }
+   .start-container.status-running .start-btn {
+     background: #070708;
+     color: #e3f7ff;
+     position: relative;
+   }
+
+   /* =======================================================
+     Buttons
+     ======================================================= */
+   .small-btn-row {
+     width: 100%;
+     display: flex;
+     justify-content: space-between;
+     gap: 10px;
+     margin: 14px 0;
+   }
+
+   .small-btn {
+     flex: 1;
+     padding: 10px 0;
+     border-radius: 12px;
+     font-size: 13px;
+     color: #e6edf3;
+     background: #070708;
+     cursor: pointer;
+     border: 1px solid rgba(110, 160, 255, 0.09);
+     box-shadow:
+       0 0 22px rgba(0, 25, 50, 0.55),
+       0 0 0 1px rgba(110, 160, 255, 0.05);
+     transition: 0.25s ease;
+   }
+   /* =======================================================
+     setting button
+     ======================================================= */
+   .big-btn {
+     width: 100%;
+     padding: 12px 0;
+     border-radius: 12px;
+     font-size: 14px;
+     background: #070708;
+     color: #e6edf3;
+     cursor: pointer;
+     border: 1px solid rgba(110, 160, 255, 0.09);
+     box-shadow:
+       0 0 22px rgba(0, 25, 50, 0.55),
+       0 0 0 1px rgba(110, 160, 255, 0.05);
+     margin-bottom: 12px;
+     transition: 0.25s ease;
+   }
+
+   .big-btn:hover {
+     color: #00bfff;
+     transform: scale(1.01);
+     box-shadow:
+       0 0 28px rgba(0, 195, 255, 0.18),
+       0 0 10px rgba(0, 195, 255, 0.12),
+       0 0 0 1px rgba(255, 255, 255, 0.06);
+   }
+   .status {
+     font-size: 12.5px;
+     color: #00bfff;
+     margin: 6px 0;
+   }
+
+   .disabled {
+    opacity: 0.4;
+    pointer-events: none;
+    filter: grayscale(40%);
+  }

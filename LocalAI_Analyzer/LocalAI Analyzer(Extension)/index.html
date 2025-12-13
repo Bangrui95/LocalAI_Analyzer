@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>LocalAI Analyzer — Personalized Labels</title>
+  <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+  <h1>Personalized Labels</h1>
+ 
+  <!-- Refresh Button -->
+  <button id="refreshBtn">Refresh</button>
+  <button id="saveStatusBtn" class="status-saved">Saved</button>
+  
+  <!-- infor -->
+  <p id="status">Loading analysis results...</p>
+
+  <!-- Custom Input -->
+  <div id="customTagBar" class="custom-tag-bar">
+    <div class="summary-item custom-input-row">
+      <div class="bar custom-bar"></div>
+      <div class="cell-left">
+        <span class="rank">+</span>
+        <input type="text" id="customTagInput" placeholder="Create new tags..." class="custom-input" />
+      </div>
+      <div class="cell-center"></div>
+      <div class="cell-right">
+        <button id="saveCustomTagBtn" class="save-btn">Save</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Tags -->
+  <div id="resultBox" class="result-list"></div>
+
+  <!-- Deleted Tags-->
+  <div id="deletedSection" class="deleted-section" style="display:none;">
+    <h2 style="color:#ff7070;margin-bottom:10px;">Deleted Labels</h2>
+    <div id="deletedList"></div>
+  </div>
+
+  <script src="index.js"></script>
+  
+</body>
+
+</html>

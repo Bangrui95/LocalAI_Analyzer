@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>New tab</title>
+  <link rel="stylesheet" href="newtab.css" />
+</head>
+
+<body>
+  <div class="page-wrapper">
+
+    <!-- search -->
+    <div class="search-container">
+      <form action="https://www.google.com/search" method="GET" target="_blank">
+        <input type="text" name="q" placeholder="Search Google or type a URL" class="search-input" autocomplete="off" />
+      </form>
+    </div>
+
+    <!-- Personalized -->
+    <section class="recommend-section">
+      <h1 class="section-title">Personalized Insights</h1>
+      <p class="update-time" id="updateTime"></p>
+      <div id="recommendContainer" class="recommend-scroll">Loading...</div>
+    </section>
+
+  </div>
+  
+<!-- LOGO -->
+  <div class="footer-logo">
+    <span class="logo-white">LocalAI</span>
+    <span class="logo-blue">Analyzer</span>
+  </div>
+
+  <script src="newtab.js"></script>
+</body>
+
+</html>
